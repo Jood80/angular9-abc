@@ -10,7 +10,7 @@
     {
       "id": 2,
       "title": "Functional JavaScript",
-      "description": "Brian is a demi-god",
+      "description": "Brian is a legend",
       "percentComplete": 0,
       "favorite": false
     },
@@ -27,6 +27,13 @@
       "description": "Marc G Gets It Done",
       "percentComplete": 0,
       "favorite": false
+    },
+    {
+      "id": 5,
+      "title": "Design Patterns",
+      "description": "Rolling the dice to see design pattern",
+      "percentComplete": 8,
+      "favorite": true
     }
   ]
 }
