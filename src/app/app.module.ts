@@ -9,7 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { CoursesComponent } from './courses/courses.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { CoursesService } from './shared/services/courses.service';
+import { CoursesService } from './shared/services/courses/courses.service';
+import { LessonsService } from './shared/services/lessons/lessons.service';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, CoursesComponent],
@@ -21,7 +22,7 @@ import { CoursesService } from './shared/services/courses.service';
     MaterialModule,
     HttpClientModule,
   ],
-  providers: [CoursesService],
+  providers: [CoursesService, LessonsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
