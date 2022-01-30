@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CoursesService } from '../shared/services/courses.service';
+import { CoursesService } from '../shared/services/courses/courses.service';
 
 const CourseInfoDTO = {
   id: null,
@@ -22,7 +22,7 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetSelectedCourse();
-    this.courses = this.coursesService.courses;
+    this.courses = this.coursesService.all();
   }
 
   resetSelectedCourse() {
@@ -44,8 +44,12 @@ export class CoursesComponent implements OnInit {
     console.log('COURSE DELETED!', courseId);
   }
 
-  saveCourse() {
-    console.log('SAVE COURCE!');
+  saveCourse(course: any) {
+    if (course.id) {
+      this.coursesService.create(course);
+    } else {
+      this.coursesService.update(course);
+    }
   }
 
   cancel() {
