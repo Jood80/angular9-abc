@@ -1,12 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 
+const CourseInfoDTO = {
+  id: null,
+  title: '',
+  description: '',
+  percentComplete: 0,
+  favorite: false,
+};
+
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.scss'],
 })
 export class CoursesComponent implements OnInit {
-  currentCourse = null;
+  selectedCourse = CourseInfoDTO;
 
   courses = [
     {
@@ -27,13 +35,34 @@ export class CoursesComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.resetSelectedCourse();
+  }
+
+  resetSelectedCourse() {
+    const emptyCourse = {
+      id: null,
+      title: '',
+      description: '',
+      percentComplete: 0,
+      favorite: false,
+    };
+    this.selectedCourse = emptyCourse;
+  }
 
   selectCourse(course: any) {
-    this.currentCourse = course;
+    this.selectedCourse = course;
   }
 
   deleteCourse(courseId: any) {
     console.log('COURSE DELETED!', courseId);
+  }
+
+  saveCourse() {
+    console.log('SAVE COURCE!');
+  }
+
+  cancel() {
+    this.resetSelectedCourse();
   }
 }
