@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoursesService } from '../shared/services/courses.service';
 
 const CourseInfoDTO = {
   id: null,
@@ -15,28 +16,13 @@ const CourseInfoDTO = {
 })
 export class CoursesComponent implements OnInit {
   selectedCourse = CourseInfoDTO;
+  courses: any = null;
 
-  courses = [
-    {
-      id: 1,
-      title: 'Angular 9 Fundamentals',
-      description: 'Learn the fundamentals of Angular 9',
-      percentComplete: 26,
-      favorite: true,
-    },
-    {
-      id: 2,
-      title: 'Javascript Fundamentals',
-      description: 'Learn the hard parts of Javascript',
-      percentComplete: 20,
-      favorite: true,
-    },
-  ];
-
-  constructor() {}
+  constructor(private coursesService: CoursesService) {}
 
   ngOnInit(): void {
     this.resetSelectedCourse();
+    this.courses = this.coursesService.courses;
   }
 
   resetSelectedCourse() {
