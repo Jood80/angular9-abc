@@ -14,9 +14,10 @@ import { LessonsService } from './shared/services/lessons/lessons.service';
 import { CoursesListComponent } from './courses/courses-list/courses-list.component';
 import { CourseDetailsComponent } from './courses/course-details/course-details.component';
 import { LessonsListComponent } from './lessons/lessons-list/lessons-list.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, CoursesComponent, CoursesListComponent, CourseDetailsComponent, LessonsListComponent],
+  declarations: [AppComponent, HomeComponent, CoursesComponent, CoursesListComponent, CourseDetailsComponent, LessonsListComponent, UsersComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
