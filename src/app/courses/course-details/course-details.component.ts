@@ -6,7 +6,16 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./course-details.component.scss'],
 })
 export class CourseDetailsComponent {
-  @Input() course: any;
+  selectedCourse: any;
+  originalTitle: any;
+
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
+
+  @Input() set course(value: any) {
+    if (value) {
+      this.selectedCourse = Object.assign({}, value);
+      this.originalTitle = value.title;
+    }
+  }
 }
